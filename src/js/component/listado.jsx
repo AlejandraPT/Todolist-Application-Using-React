@@ -5,12 +5,10 @@ const Listado = () => {
     const [newTask, setnewTask] = useState ('');
     const [tasks, setTasks] = useState([]);
     
-
     const onNewTaskChange = useCallback((event)=>{
         setnewTask(event.target.value);
     }, []);
     
-    //submit
     const formSubmitted =useCallback ((event) => {
         event.preventDefault();
         if (!newTask.trim()) return;
@@ -25,8 +23,6 @@ const Listado = () => {
         setnewTask('');
     }, [newTask, tasks]);
     
-    
-    //button remove
     const deleteTask = useCallback((task) => (event) => {
         setTasks(tasks.filter(otherTask => otherTask!= task));
     }, [tasks]);
